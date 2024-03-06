@@ -1,12 +1,21 @@
 @keyframes background-pan {
-    from {
-      background-position: 0% center;
-    }
-    
-    to {
-      background-position: -200% center;
-    }
+  from {
+    background-position: 0% center;
   }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes color-trail {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  to {
+  }
+}
 
 .tiles {
   width: 100%;
@@ -27,5 +36,17 @@
 }
 
 .tile {
-  border: 1px solid black;
+  background: rgb(30, 43, 48);
+}
+
+.centered {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 6vw;
+
+  pointer-events: none;
 }

@@ -1,46 +1,54 @@
 import "./moving-tiles.style.css";
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 
 type MovingTilesProps = {
   height: number;
   width: number;
+  duration: number;
+  interval: number;
 };
 
-let defaultProps: MovingTilesProps = { height: 50, width: 50 };
-let colorIndex: number = 1;
-let canClick: boolean = true;
-const colors = ["rgba(30, 43, 48, 0.2)", "rgba(0,0,0,0)"];
+let defaultProps: MovingTilesProps = {
+  height: 50,
+  width: 50,
+  duration: 500,
+  interval: 1500,
+};
 
-export function MovingTiles(props: PropsWithChildren<MovingTilesProps>) {
+export function MovingTiles(props: MovingTilesProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState(0);
   const [rows, setRows] = useState(0);
 
-  function bigger() {
-    return columns > rows ? columns : rows;
+  let colorIndex: number = 0;
+  const colors = ["rgb(30, 43, 48)", "rgb(17, 25, 28)"];
+
+  function startAnimation(index: number): void {
+    const tile = document.getElementById(index.toString());
+    if (tile) {
+      tile.style.animation = `color-trail ${props.duration}ms linear`;
+    }
+    setTimeout(() => {
+      if (tile) tile.style.animation = "";
+    }, props.duration);
   }
 
-  function handleOnClick(index: number) {
-    if (canClick) {
-      canClick = false;
-      setTimeout(() => {
-        canClick = true;
-      }, 50 * bigger());
-      colorIndex += 1;
-      anime({
-        targets: ".tile",
-        backgroundColor: colors[colorIndex % colors.length],
-        delay: anime.stagger(50, { grid: [columns, rows], from: index }),
-      });
-    }
+  function moveGrid(index: number): void {
+    colorIndex += 1;
+    anime({
+      targets: ".tile",
+      backgroundColor: colors[colorIndex % colors.length],
+      delay: anime.stagger(25, { grid: [columns, rows], from: index }),
+    });
   }
 
   function createTile(index: number): HTMLDivElement {
     const tile = document.createElement("div");
+    tile.id = index.toString();
     tile.classList.add("tile");
-    tile.onclick = () => {
-      handleOnClick(index);
+    tile.onmouseenter = () => {
+      startAnimation(index);
     };
     return tile;
   }
@@ -80,11 +88,20 @@ export function MovingTiles(props: PropsWithChildren<MovingTilesProps>) {
     createGrid();
   };
 
-  return (
-    <div id="tiles" className="tiles" ref={ref}>
-      {props.children}
-    </div>
-  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const index = Math.floor(Math.random() * columns * rows);
+      moveGrid(index);
+    }, props.interval);
+    return () => clearInterval(interval);
+  }, [columns, rows]);
+
+  useEffect(() => {
+    const index = Math.floor(Math.random() * columns * rows);
+    moveGrid(index);
+  });
+
+  return <div id="tiles" className="tiles" ref={ref}></div>;
 }
 
 MovingTiles.defaultProps = defaultProps;

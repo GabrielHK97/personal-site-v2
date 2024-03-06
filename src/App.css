@@ -6,3 +6,10 @@ body {
   width: 100svw;
   height: 100svh;
 }
+
+.wrapper {
+  width: 200px;
+  height: 300px;
+  border-radius: 50px;
+  overflow: hidden;
+}
