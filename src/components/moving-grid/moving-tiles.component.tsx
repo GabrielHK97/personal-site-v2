@@ -10,7 +10,7 @@ type MovingTilesProps = {
 };
 
 let defaultProps: MovingTilesProps = {
-  height: 50,
+  height: 30,
   width: 50,
   duration: 500,
   interval: 1500,
@@ -24,7 +24,7 @@ export function MovingTiles(props: MovingTilesProps) {
   let colorIndex: number = 0;
   const colors = ["rgb(30, 43, 48)", "rgb(17, 25, 28)"];
 
-  function startAnimation(index: number): void {
+  function followMouse(index: number): void {
     const tile = document.getElementById(index.toString());
     if (tile) {
       tile.style.animation = `color-trail ${props.duration}ms linear`;
@@ -34,7 +34,7 @@ export function MovingTiles(props: MovingTilesProps) {
     }, props.duration);
   }
 
-  function moveGrid(index: number): void {
+  function oscilateGrid(index: number): void {
     colorIndex += 1;
     anime({
       targets: ".tile",
@@ -48,7 +48,7 @@ export function MovingTiles(props: MovingTilesProps) {
     tile.id = index.toString();
     tile.classList.add("tile");
     tile.onmouseenter = () => {
-      startAnimation(index);
+      followMouse(index);
     };
     return tile;
   }
@@ -62,10 +62,12 @@ export function MovingTiles(props: MovingTilesProps) {
 
   function createGrid(): void {
     setColumns(
-      Math.floor(ref.current ? ref.current.clientWidth / props.width : 0)
+      // Math.floor(ref.current ? ref.current.clientWidth / props.width : 0)
+      props.width
     );
     setRows(
-      Math.floor(ref.current ? ref.current.clientHeight / props.height : 0)
+      // Math.floor(ref.current ? ref.current.clientHeight / props.height : 0)
+      props.height
     );
     const tiles = document.getElementById("tiles");
     if (tiles) {
@@ -91,14 +93,14 @@ export function MovingTiles(props: MovingTilesProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       const index = Math.floor(Math.random() * columns * rows);
-      moveGrid(index);
+      oscilateGrid(index);
     }, props.interval);
     return () => clearInterval(interval);
   }, [columns, rows]);
 
   useEffect(() => {
     const index = Math.floor(Math.random() * columns * rows);
-    moveGrid(index);
+    oscilateGrid(index);
   });
 
   return <div id="tiles" className="tiles" ref={ref}></div>;
