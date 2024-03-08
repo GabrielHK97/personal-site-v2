@@ -10,8 +10,8 @@ type MovingTilesProps = {
 };
 
 let defaultProps: MovingTilesProps = {
-  height: 50,
-  width: 50,
+  height: 30,
+  width: 60,
   duration: 500,
   interval: 1500,
 };
@@ -22,7 +22,7 @@ export function MovingTiles(props: MovingTilesProps) {
   const [rows, setRows] = useState(0);
 
   let colorIndex: number = 0;
-  const colors = ["rgb(30, 43, 48)", "rgb(17, 25, 28)"];
+  const colors = ["rgb(30, 43, 48)", "rgb(26, 36, 40)"];
 
   function followMouse(index: number): void {
     const tile = document.getElementById(index.toString());
@@ -61,12 +61,8 @@ export function MovingTiles(props: MovingTilesProps) {
   }
 
   function createGrid(): void {
-    setColumns(
-      Math.floor(ref.current ? ref.current.clientWidth / props.width : 0)
-    );
-    setRows(
-      Math.floor(ref.current ? ref.current.clientHeight / props.height : 0)
-    );
+    setColumns(props.width);
+    setRows(props.height);
     const tiles = document.getElementById("tiles");
     if (tiles) {
       tiles.innerHTML = "";
@@ -81,10 +77,10 @@ export function MovingTiles(props: MovingTilesProps) {
   };
 
   useEffect(() => {
-    const index = Math.floor(Math.random() * columns * rows);
-    oscilateGrid(index);
+    oscilateGrid(Math.floor(Math.random() * columns * rows));
     createGrid();
     const interval = setInterval(() => {
+      const index = Math.floor(Math.random() * columns * rows);
       oscilateGrid(index);
     }, props.interval);
     return () => clearInterval(interval);

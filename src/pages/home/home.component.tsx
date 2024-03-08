@@ -5,10 +5,10 @@ import { TypedEffect } from "../../components/typed-effect/typed-effect.componen
 export function Home() {
   return (
     <div className="home">
-      <div className="centered">
+      <div className="home-centered">
         <TypedEffect value="gabrielhk.dev" />
       </div>
-      <div className="wrapper">
+      <div className="home-wrapper">
         <MovingTiles />
       </div>
     </div>

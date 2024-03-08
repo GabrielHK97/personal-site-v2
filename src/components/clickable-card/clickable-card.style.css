@@ -1,0 +1,9 @@
+.clickable-card {
+    background: #faedcd;
+    width: 100%;
+    height: 100%;
+}
+
+.clickable-wrapper {
+    padding: 20px;
+}
