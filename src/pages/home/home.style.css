@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.centered {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 5vw;
+}
+
+.home {
+    width: 100svw;
+    height: 100svh;
+}

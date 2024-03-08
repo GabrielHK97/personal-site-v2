@@ -1,16 +1,18 @@
 import "./App.css";
-import { MovingTiles } from "./components/moving-grid/moving-tiles.component";
-import { TypedEffect } from "./components/typed-effect/typed-effect.component";
+import { HomePage } from "./pages/home/home.page";
 
 function App() {
+
+  let toggled: boolean = false;
+  function showOrHide() {
+    toggled ? HomePage.undo() : HomePage.do();
+    toggled = !toggled;
+  }
+
   return (
     <div className="background">
-      <div className="centered">
-        <TypedEffect value="gabrielhk.dev"/>
-      </div>
-      <div className="wrapper">
-        <MovingTiles />
-      </div>
+      <button className="menu-button" onClick={showOrHide}>Menu</button>
+      <iframe id="home-iframe" className="home-iframe" src="/pages/home"/>
     </div>
   );
 }

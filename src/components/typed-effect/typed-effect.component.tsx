@@ -1,3 +1,4 @@
+import './typed-effect.style.css'
 import { useEffect, useState } from "react";
 
 type TypedEffectProps = {
@@ -13,17 +14,18 @@ export function TypedEffect(props: TypedEffectProps) {
   let interval: any = null;
 
   const [value, setValue] = useState(props.value);
+  const [originalValue, setOriginalValue] = useState(props.value);
 
   function doEffect(): void {
     let iteration = 0;
     clearInterval(interval);
     interval = setInterval(() => {
       setValue(
-        value
+        originalValue
           .split("")
           .map((letter: any, index: any) => {
             if (index < iteration) {
-              return value[index];
+              return originalValue[index];
             }
 
             return letters[Math.floor(Math.random() * 26)];
@@ -32,19 +34,20 @@ export function TypedEffect(props: TypedEffectProps) {
           .toUpperCase()
       );
 
-      if (iteration >= value.length) {
+      if (iteration >= originalValue.length) {
         clearInterval(interval);
       }
-      iteration += 1 / 4;
+      iteration += 1 / 2;
     }, 30);
   }
 
   useEffect(() => {
     setValue(props.value);
+    setOriginalValue(props.value);
     doEffect();
   }, [props.value]);
 
-  return <div onMouseOver={doEffect}>{value}</div>;
+  return <div className="typed" onMouseOver={doEffect}>{value}</div>;
 }
 
 TypedEffect.defaultProps = defaultProps;

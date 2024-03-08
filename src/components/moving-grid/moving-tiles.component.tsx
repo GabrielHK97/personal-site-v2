@@ -10,7 +10,7 @@ type MovingTilesProps = {
 };
 
 let defaultProps: MovingTilesProps = {
-  height: 30,
+  height: 50,
   width: 50,
   duration: 500,
   interval: 1500,
@@ -62,12 +62,10 @@ export function MovingTiles(props: MovingTilesProps) {
 
   function createGrid(): void {
     setColumns(
-      // Math.floor(ref.current ? ref.current.clientWidth / props.width : 0)
-      props.width
+      Math.floor(ref.current ? ref.current.clientWidth / props.width : 0)
     );
     setRows(
-      // Math.floor(ref.current ? ref.current.clientHeight / props.height : 0)
-      props.height
+      Math.floor(ref.current ? ref.current.clientHeight / props.height : 0)
     );
     const tiles = document.getElementById("tiles");
     if (tiles) {
@@ -78,29 +76,18 @@ export function MovingTiles(props: MovingTilesProps) {
     createTiles(columns * rows);
   }
 
-  useEffect(() => {
-    createGrid();
-  }, [ref, props]);
-
-  useEffect(() => {
-    createGrid();
-  });
-
   window.onresize = () => {
     createGrid();
   };
 
   useEffect(() => {
+    const index = Math.floor(Math.random() * columns * rows);
+    oscilateGrid(index);
+    createGrid();
     const interval = setInterval(() => {
-      const index = Math.floor(Math.random() * columns * rows);
       oscilateGrid(index);
     }, props.interval);
     return () => clearInterval(interval);
-  }, [columns, rows]);
-
-  useEffect(() => {
-    const index = Math.floor(Math.random() * columns * rows);
-    oscilateGrid(index);
   });
 
   return <div id="tiles" className="tiles" ref={ref}></div>;

@@ -38,15 +38,3 @@
 .tile {
   background: rgb(30, 43, 48);
 }
-
-.centered {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-family: "Rubik", sans-serif;
-  font-size: 6vw;
-
-  pointer-events: none;
-}
