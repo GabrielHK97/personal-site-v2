@@ -15,16 +15,18 @@ export function About() {
     const clickableCards = document.getElementsByClassName("clickable-card");
     if (pixelList && clickableCards) {
       for (let i = 0; i < clickableCards.length; i++) {
-        (
-          clickableCards.item(i) as HTMLElement
-        ).style.height = `${pixelList.clientHeight}px`;
+        (clickableCards.item(i) as HTMLElement).style.height = `${
+          pixelList.clientHeight + 1
+        }px`;
       }
     }
     const images = document.getElementById("images");
     const imgs = document.getElementsByClassName("image");
     if (images && imgs) {
       for (let i = 0; i < imgs.length; i++) {
-        (imgs.item(i) as HTMLElement).style.height = `${images.clientHeight}px`;
+        (imgs.item(i) as HTMLElement).style.height = `${
+          images.clientHeight - 1
+        }px`;
         (imgs.item(i) as HTMLElement).style.left = `${
           images.clientWidth * i
         }px`;
@@ -102,29 +104,126 @@ export function About() {
       <div className="about-wrapper">
         <div className="about-label">WORK EXPERIENCE</div>
         <div className="info">
-          <div id="images" className="images">
-            <div id="images-view" className="image-view">
-              <img className="image" alt="sgsistemas" src={sgsistemas} />
-              <img className="image" alt="elotech" src={elotech} />
-              <img className="image" alt="conmarket" src={conmarket} />
-              <img className="image" alt="stefanini" src={stefanini} />
-              <img className="image" alt="unavanti" src={unavanti} />
+          <div className="column">
+            <div id="images" className="images">
+              <div id="images-view" className="image-view">
+                <img className="image" alt="sgsistemas" src={sgsistemas} />
+                <img className="image" alt="elotech" src={elotech} />
+                <img className="image" alt="conmarket" src={conmarket} />
+                <img className="image" alt="stefanini" src={stefanini} />
+                <img className="image" alt="unavanti" src={unavanti} />
+              </div>
+            </div>
+            <div className="buttons">
+              <button className="button">{"<"}</button>
+              <button className="button" style={{ marginLeft: "min(1vh,1vw)" }}>{">"}</button>
             </div>
           </div>
           <PixelList>
             <ClickableCard>
-              <div className="card-title">SG Systems</div>
               <div className="card-title">
-                I worked with more than 20 products on the portfolio, developing
-                all of them with a wide variety of technologies, such as
-                Angular, AngularJS, NodeJs, Java Struts, Java Android, PHP and
-                Flex.
+                <div className="card-company">SG Systems</div>
+                <div className="tech">Java</div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  React
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Angular
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Typescript
+                </div>
+              </div>
+              <div className="card-text">
+                I have specialized in the development of products tailored for
+                establishment management across web and mobile platforms,
+                leveraging a spectrum of technologies ranging from the
+                time-tested to the cutting-edge.
               </div>
             </ClickableCard>
-            <ClickableCard>teste</ClickableCard>
-            <ClickableCard>teste</ClickableCard>
-            <ClickableCard>teste</ClickableCard>
-            <ClickableCard>teste</ClickableCard>
+            <ClickableCard>
+              <div className="card-title">
+                <div className="card-company">Elotech</div>
+                <div className="tech">Spring Boot</div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Java
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Angular
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Typescript
+                </div>
+              </div>
+              <div className="card-text">
+                I have developed functionalities for a public management system,
+                focusing specifically on the payroll component, which is
+                utilized by municipalities, government agencies, and public
+                entities.
+              </div>
+            </ClickableCard>
+            <ClickableCard>
+              <div className="card-title">
+                <div className="card-company">Conmarket</div>
+                <div className="tech">Flutter</div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Node.js
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  React
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Typescript
+                </div>
+              </div>
+              <div className="card-text">
+                At this startup, I lead the development of both a web and mobile
+                application designed for the management of self-checkout
+                markets, as well as a mobile application geared towards customer
+                discounts.
+              </div>
+            </ClickableCard>
+            <ClickableCard>
+              <div className="card-title">
+                <div className="card-company">Stefanini</div>
+                <div className="tech">Java</div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  React
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Angular
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Typescript
+                </div>
+              </div>
+              <div className="card-text">
+                I developed web pages as a third-party contractor for Banco do
+                Brasil, specifically focusing on the consignment department.
+              </div>
+            </ClickableCard>
+            <ClickableCard>
+              <div className="card-title">
+                <div className="card-company">Unavanti</div>
+                <div className="tech">Nest.js</div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Java
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Angular
+                </div>
+                <div className="tech" style={{ marginLeft: "min(1vh,1vw)" }}>
+                  Typescript
+                </div>
+              </div>
+              <div className="card-text">
+                I'm currently involved in the development of both an internet
+                banking web application and a mobile application for a prominent
+                financial institution. This institution primarily targets small
+                businesses, offering tailored account services to meet their
+                unique needs.
+              </div>
+            </ClickableCard>
           </PixelList>
         </div>
       </div>

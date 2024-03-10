@@ -18,7 +18,7 @@
   transition: top, opacity;
   transition-duration: 600ms;
   transition-timing-function: ease;
-  background: linear-gradient(transparent, #B5E48C, transparent);
+  background: linear-gradient(transparent, #52B69A, transparent);
   opacity: 1;
 }
 
@@ -33,5 +33,4 @@
 
 .list-view {
   width: 100%;
-  background: #faedcd;
 }

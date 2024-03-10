@@ -38,6 +38,31 @@
 
 .info {
   display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  width: 20vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: min(2vh, 2vw);
+}
+
+.button {
+  border-radius: max(2vh, 2vw);
+  color: rgb(17, 24, 28);
+  background: #faedcd;
+  font-family: "Rubik", sans-serif;
+  transform: skew(-10deg);
+  padding: min(1vh, 1vw);
+  width: max(3vh, 3vw)
 }
 
 .about-label {
@@ -50,7 +75,7 @@
   color: #faedcd;
   font-family: "Rubik", sans-serif;
   font-size: min(8vh, 8vw);
-  padding-left: calc(2 * min(1vh, 1vw));
+  padding-left: min(2vh, 2vw);
 }
 
 .about-wrapper {
@@ -61,4 +86,36 @@
   color: rgb(17, 24, 28);
   font-family: "Rubik", sans-serif;
   font-size: min(4vh, 4vw);
+  height: fit-content;
+  padding: min(2vh, 2vw);
+  background-color: #faedcd;
+  display: flex;
+}
+
+.card-text {
+  background: rgb(17, 24, 28);
+  color: #faedcd;
+  font-family: "Rubik", sans-serif;
+  font-size: min(3vh, 3vw);
+  padding: min(2vh, 2vw);
+  height: 100%;
+}
+
+.card-footer {
+  background: red;
+  position: absolute;
+  bottom: 0;
+}
+
+.card-company {
+  flex-grow: 1;
+}
+
+.tech {
+  border-radius: max(3vh, 3vw);
+  color: #faedcd;
+  background: rgb(17, 24, 28);
+  padding: min(1vh, 1vw);
+  font-size: min(2vh, 2vw);
+  height: fit-content;
 }
