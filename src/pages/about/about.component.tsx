@@ -51,6 +51,7 @@ export function About() {
     const imagesView = document.getElementById("images-view");
     const imgs = document.getElementsByClassName("image");
     const pixel = document.getElementById("pixel");
+    const clickableCards = document.getElementsByClassName("clickable-card");
     let offsetCards: number = 0;
     let trackCards: number = 0;
     let offsetImages: number = 0;
@@ -76,16 +77,27 @@ export function About() {
       if (scrollPercentage >= 0) {
         scrollPercentage = 0;
       }
-      if (listView) {
-        listView.style.transform = `translate(0%, ${
-          scrollPercentage * offsetCards * 100
-        }%)`;
-      }
-      if (imagesView) {
-        imagesView.style.transform = `translate(${
-          scrollPercentage * offsetImages * 100
-        }%, 0%)`;
-      }
+      // if (listView) {
+      //   listView.style.transform = `translate(0%, ${
+      //     scrollPercentage * offsetCards * 100
+      //   }%)`;
+      // }
+      anime({
+        targets: listView,
+        translateY:
+          scrollPercentage *
+          offsetCards *
+          5 *
+          clickableCards.item(1)!.clientHeight,
+        duration: 200,
+        easing: "linear",
+      });
+      anime({
+        targets: imagesView,
+        translateX: scrollPercentage * offsetImages * imgs.item(1)!.clientWidth,
+        duration: 200,
+        easing: "linear",
+      });
       anime({
         targets: pixel,
         top: `${scrollPercentage * trackCards * -100}%`,
@@ -116,7 +128,9 @@ export function About() {
             </div>
             <div className="buttons">
               <button className="button">{"<"}</button>
-              <button className="button" style={{ marginLeft: "min(1vh,1vw)" }}>{">"}</button>
+              <button className="button" style={{ marginLeft: "min(1vh,1vw)" }}>
+                {">"}
+              </button>
             </div>
           </div>
           <PixelList>
