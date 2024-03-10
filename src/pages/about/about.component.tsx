@@ -9,10 +9,21 @@ import stefanini from "./images/stefanini.jpg";
 import unavanti from "./images/unavanti.jpg";
 import anime from "animejs";
 
+let scrollPercentage: number = 0;
+
 export function About() {
   function resize() {
     const pixelList = document.getElementById("pixel-list");
     const clickableCards = document.getElementsByClassName("clickable-card");
+    const list = document.getElementById("list");
+    const listView = document.getElementById("list-view");
+    const images = document.getElementById("images");
+    const imagesView = document.getElementById("images-view");
+    const imgs = document.getElementsByClassName("image");
+    const pixel = document.getElementById("pixel");
+    let offsetCards: number = 0;
+    let trackCards: number = 0;
+    let offsetImages: number = 0;
     if (pixelList && clickableCards) {
       for (let i = 0; i < clickableCards.length; i++) {
         (clickableCards.item(i) as HTMLElement).style.height = `${
@@ -20,8 +31,6 @@ export function About() {
         }px`;
       }
     }
-    const images = document.getElementById("images");
-    const imgs = document.getElementsByClassName("image");
     if (images && imgs) {
       for (let i = 0; i < imgs.length; i++) {
         (imgs.item(i) as HTMLElement).style.height = `${
@@ -32,6 +41,44 @@ export function About() {
         }px`;
       }
     }
+    if (list && listView && list.clientHeight < listView.clientHeight) {
+      offsetCards =
+        (listView.clientHeight - list.clientHeight) / listView.clientHeight;
+    }
+    if (images && imgs) {
+      offsetImages = imgs.length - 1;
+    }
+    if (list && pixel) {
+      trackCards = (list.clientHeight - pixel.clientHeight) / list.clientHeight;
+    }
+    if (scrollPercentage < -1) {
+      scrollPercentage = -1;
+    }
+    if (scrollPercentage >= 0) {
+      scrollPercentage = 0;
+    }
+    anime({
+      targets: listView,
+      translateY:
+        scrollPercentage *
+        offsetCards *
+        5 *
+        clickableCards.item(1)!.clientHeight,
+      duration: 0,
+      easing: "linear",
+    });
+    anime({
+      targets: imagesView,
+      translateX: scrollPercentage * offsetImages * imgs.item(1)!.clientWidth,
+      duration: 0,
+      easing: "linear",
+    });
+    anime({
+      targets: pixel,
+      top: `${scrollPercentage * trackCards * -100}%`,
+      duration: 0,
+      easing: "linear",
+    });
   }
 
   window.addEventListener("resize", () => {
@@ -42,14 +89,13 @@ export function About() {
     resize();
   });
 
-  let scrollPercentage: number = 0;
-
   function scroll(e: any) {
     const list = document.getElementById("list");
     const listView = document.getElementById("list-view");
     const images = document.getElementById("images");
     const imagesView = document.getElementById("images-view");
     const imgs = document.getElementsByClassName("image");
+    const clickableCards = document.getElementsByClassName("clickable-card");
     const pixel = document.getElementById("pixel");
     let offsetCards: number = 0;
     let trackCards: number = 0;
@@ -76,16 +122,22 @@ export function About() {
       if (scrollPercentage >= 0) {
         scrollPercentage = 0;
       }
-      if (listView) {
-        listView.style.transform = `translate(0%, ${
-          scrollPercentage * offsetCards * 100
-        }%)`;
-      }
-      if (imagesView) {
-        imagesView.style.transform = `translate(${
-          scrollPercentage * offsetImages * 100
-        }%, 0%)`;
-      }
+      anime({
+        targets: listView,
+        translateY:
+          scrollPercentage *
+          offsetCards *
+          5 *
+          clickableCards.item(1)!.clientHeight,
+        duration: 200,
+        easing: "linear",
+      });
+      anime({
+        targets: imagesView,
+        translateX: scrollPercentage * offsetImages * imgs.item(1)!.clientWidth,
+        duration: 200,
+        easing: "linear",
+      });
       anime({
         targets: pixel,
         top: `${scrollPercentage * trackCards * -100}%`,
@@ -116,7 +168,9 @@ export function About() {
             </div>
             <div className="buttons">
               <button className="button">{"<"}</button>
-              <button className="button" style={{ marginLeft: "min(1vh,1vw)" }}>{">"}</button>
+              <button className="button" style={{ marginLeft: "min(1vh,1vw)" }}>
+                {">"}
+              </button>
             </div>
           </div>
           <PixelList>
