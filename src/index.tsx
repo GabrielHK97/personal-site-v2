@@ -6,7 +6,6 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Home } from "./pages/home/home.component";
-import { About } from "./pages/about/about.component";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,14 +15,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/pages/home",
-    element: <Home />,
-  },
-  {
-    path: "/pages/about",
-    element: <About />,
   },
 ]);
 
