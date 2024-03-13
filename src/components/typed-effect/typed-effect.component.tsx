@@ -1,4 +1,4 @@
-import './typed-effect.style.css'
+import "./typed-effect.style.css";
 import { useEffect, useState } from "react";
 
 type TypedEffectProps = {
@@ -45,9 +45,21 @@ export function TypedEffect(props: TypedEffectProps) {
     setValue(props.value);
     setOriginalValue(props.value);
     doEffect();
-  }, [props.value]);
+  }, []);
 
-  return <div className="typed" onMouseOver={doEffect}>{value}</div>;
+  return (
+    <>
+      <div className="before" onMouseOver={doEffect}>
+        {value}
+      </div>
+      <div className="typed" onMouseOver={doEffect}>
+        {value}
+      </div>
+      <div className="after" onMouseOver={doEffect}>
+        {value}
+      </div>
+    </>
+  );
 }
 
 TypedEffect.defaultProps = defaultProps;

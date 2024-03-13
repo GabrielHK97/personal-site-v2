@@ -1,0 +1,21 @@
+.typing:after {
+  content: "";
+  position: absolute;
+  background: white;
+  width: min(0.1vh, 0.1vw);
+  top: min(0.5vh, 0.5vw);
+  height: min(3.5vh, 3.5vw);
+  margin-left: min(0.5vh, 0.5vw);
+  animation-name: blink;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
