@@ -38,10 +38,10 @@
   width: 100%;
   grid-row-start: 1;
   grid-row-end: 3;
-  padding: min(2vh, 2vw);
   animation-name: main-fade-in;
   animation-duration: 1000ms;
   animation-fill-mode: forwards;
+  overflow: hidden;
 }
 
 .page-sections {
@@ -330,7 +330,7 @@
   }
   to {
     opacity: 1;
-    top: 8vh;
+    top: 10vh;
   }
 }
 
@@ -341,7 +341,7 @@
   }
   to {
     opacity: 0.75;
-    top: 16vh;
+    top: 18vh;
   }
 }
 
@@ -352,7 +352,7 @@
   }
   to {
     opacity: 0.5;
-    top: 24vh;
+    top: 26vh;
   }
 }
 
@@ -363,6 +363,6 @@
   }
   to {
     opacity: 0.25;
-    top: 32vh;
+    top: 34vh;
   }
 }

@@ -70,7 +70,7 @@ export function Page() {
             <feDisplacementMap
               in="SourceGraphic"
               in2="static"
-              scale="2.5"
+              scale="3"
             ></feDisplacementMap>
           </filter>
         </defs>
