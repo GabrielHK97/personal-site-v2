@@ -35,6 +35,7 @@
 .page-main {
   color: white;
   border-radius: min(5vh, 5vw);
+  font-family: "Rubik", sans-serif;
   width: 100%;
   grid-row-start: 1;
   grid-row-end: 3;
@@ -42,6 +43,9 @@
   animation-duration: 1000ms;
   animation-fill-mode: forwards;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-sections {
@@ -86,7 +90,11 @@
   align-items: center;
 }
 
-.info-presentation {
+.presentation {
+  font-size: min(7vh, 7vw);
+}
+
+.info-grow {
   flex-grow: 1;
 }
 

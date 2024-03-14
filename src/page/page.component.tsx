@@ -3,6 +3,7 @@ import Picture from "../assets/profile.png";
 import { TypedEffect } from "../components/typed-effect/typed-effect.component";
 import { TypingEffect } from "../components/typing-effect/typing-effect.component";
 import { useEffect } from "react";
+import Spline from "@splinetool/react-spline";
 
 let id: string = "home";
 
@@ -45,7 +46,6 @@ export function Page() {
   }, []);
 
   window.addEventListener("resize", () => {
-    console.log("teste");
     setMarker();
   });
 
@@ -141,15 +141,33 @@ export function Page() {
           </div>
         </div>
       </div>
-      <div className="page-main faded-box">teste</div>
+      <div className="page-main faded-box">
+        <div className="presentation">
+          {`Hello, I'm `}
+          <span className="info-name">
+            <TypingEffect value="Gabriel Kubota" />
+          </span>
+        </div>
+      </div>
       <div className="page-info faded-box">
-        <div className="info-title">
-          <div className="info-presentation">
-            {`Hello, I'm `}
-            <span className="info-name">
-              <TypingEffect value="Gabriel Kubota" />
-            </span>
+        <div className="info-location">
+          <div className="location-icon">
+            <svg viewBox="0 0 384 512">
+              <path
+                fill="currentColor"
+                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+              />
+            </svg>
           </div>
+          Location: Brazil
+        </div>
+        <div className="info-text">
+          I am a full-stack software engineer, crafting professionally
+          exceptional applications since 2019 through innovation and
+          collaboration, always improving and learning new technologies.
+        </div>
+        <div className="info-title">
+          <div className="info-grow"></div>
           <div className="icons">
             <div
               className="icon-wrapper"
@@ -179,37 +197,17 @@ export function Page() {
             </div>
           </div>
         </div>
-        <div className="info-location">
-          <div className="location-icon">
-            <svg viewBox="0 0 384 512">
-              <path
-                fill="currentColor"
-                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-              />
-            </svg>
-          </div>
-          Location: Brazil
-        </div>
-        <div className="info-text">
-          I am a full-stack software engineer, crafting professionally
-          exceptional applications since 2021 through innovation and
-          collaboration, always keeping my eyes open for new technologies.
-        </div>
       </div>
       <div className="page-sections faded-box">
-        <div className="static page-title">
+        <div className="page-title">
           <TypedEffect value="GABRIELHK.DEV" />
         </div>
-        <div className="page-title-decor title1">GABRIELHK.DEV</div>
-        <div className="page-title-decor title2">GABRIELHK.DEV</div>
-        <div className="page-title-decor title3">GABRIELHK.DEV</div>
-        <div className="page-title-decor title4">GABRIELHK.DEV</div>
+        <div className="page-title-decor title1 ">GABRIELHK.DEV</div>
+        <div className="page-title-decor title2 ">GABRIELHK.DEV</div>
+        <div className="page-title-decor title3 ">GABRIELHK.DEV</div>
+        <div className="page-title-decor title4 ">GABRIELHK.DEV</div>
       </div>
-      <img
-        src={Picture}
-        id="page-main-image"
-        className="page-main-image static"
-      />
+      <img src={Picture} id="page-main-image" className="page-main-image" />
     </div>
   );
 }
