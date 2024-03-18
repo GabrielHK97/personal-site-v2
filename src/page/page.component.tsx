@@ -3,7 +3,6 @@ import Picture from "../assets/profile.png";
 import { TypedEffect } from "../components/typed-effect/typed-effect.component";
 import { TypingEffect } from "../components/typing-effect/typing-effect.component";
 import { useEffect } from "react";
-import Spline from "@splinetool/react-spline";
 
 let id: string = "home";
 
@@ -202,10 +201,10 @@ export function Page() {
         <div className="page-title">
           <TypedEffect value="GABRIELHK.DEV" />
         </div>
-        <div className="page-title-decor title1 ">GABRIELHK.DEV</div>
+        {/* <div className="page-title-decor title1 ">GABRIELHK.DEV</div>
         <div className="page-title-decor title2 ">GABRIELHK.DEV</div>
         <div className="page-title-decor title3 ">GABRIELHK.DEV</div>
-        <div className="page-title-decor title4 ">GABRIELHK.DEV</div>
+        <div className="page-title-decor title4 ">GABRIELHK.DEV</div> */}
       </div>
       <img src={Picture} id="page-main-image" className="page-main-image" />
     </div>

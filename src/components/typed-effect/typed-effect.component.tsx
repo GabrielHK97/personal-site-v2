@@ -45,20 +45,37 @@ export function TypedEffect(props: TypedEffectProps) {
     setValue(props.value);
     setOriginalValue(props.value);
     doEffect();
+    setInterval(() => {
+      doEffect();
+    }, 5000);
   }, []);
 
   return (
-    <>
-      <div className="before" onMouseOver={doEffect}>
+    <div className="typed-wrapper">
+      <div className="typed-wrapper">
+        <div className="before" onMouseOver={doEffect}>
+          {value}
+        </div>
+        <div className="typed" onMouseOver={doEffect}>
+          {value}
+        </div>
+        <div className="after" onMouseOver={doEffect}>
+          {value}
+        </div>
+      </div>
+      <div className="typed title-decor title1" onMouseOver={doEffect}>
         {value}
       </div>
-      <div className="typed" onMouseOver={doEffect}>
+      <div className="typed title-decor title2" onMouseOver={doEffect}>
+        {value}
+      </div>{" "}
+      <div className="typed title-decor title3" onMouseOver={doEffect}>
         {value}
       </div>
-      <div className="after" onMouseOver={doEffect}>
+      <div className="typed title-decor title4" onMouseOver={doEffect}>
         {value}
       </div>
-    </>
+    </div>
   );
 }
 

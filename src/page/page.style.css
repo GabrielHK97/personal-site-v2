@@ -184,43 +184,6 @@
 .page-title {
   font-size: max(3vh, 3vw);
   font-weight: 700;
-  transform: skew(-20deg);
-  z-index: 2;
-}
-
-.page-title-decor {
-  position: absolute;
-  height: fit;
-  color: rgba(0, 0, 0, 0);
-  font-size: max(3vh, 3vw);
-  font-weight: 700;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
-  transform: skew(-20deg);
-}
-
-.title1 {
-  animation-name: title-fade-in-1;
-  animation-duration: 1250ms;
-  animation-fill-mode: forwards;
-}
-
-.title2 {
-  animation-name: title-fade-in-2;
-  animation-duration: 1250ms;
-  animation-fill-mode: forwards;
-}
-
-.title3 {
-  animation-name: title-fade-in-3;
-  animation-duration: 1250ms;
-  animation-fill-mode: forwards;
-}
-
-.title4 {
-  animation-name: title-fade-in-4;
-  animation-duration: 1250ms;
-  animation-fill-mode: forwards;
 }
 
 @keyframes marker-fade-in {
@@ -328,49 +291,5 @@
     opacity: 1;
     transform: translate(0%, 0%);
     scale: 1;
-  }
-}
-
-@keyframes title-fade-in-1 {
-  from {
-    opacity: 0;
-    top: 0vh;
-  }
-  to {
-    opacity: 1;
-    top: 10vh;
-  }
-}
-
-@keyframes title-fade-in-2 {
-  from {
-    opacity: 0;
-    top: 0vh;
-  }
-  to {
-    opacity: 0.75;
-    top: 18vh;
-  }
-}
-
-@keyframes title-fade-in-3 {
-  from {
-    opacity: 0;
-    top: 0vh;
-  }
-  to {
-    opacity: 0.5;
-    top: 26vh;
-  }
-}
-
-@keyframes title-fade-in-4 {
-  from {
-    opacity: 0;
-    top: 0vh;
-  }
-  to {
-    opacity: 0.25;
-    top: 34vh;
   }
 }

@@ -6,12 +6,12 @@
   top: min(1.5vh, 1.5vw);
   height: min(6vh, 6vw);
   margin-left: min(0.5vh, 0.5vw);
-  animation-name: blink;
+  animation-name: blink-cursor;
   animation-duration: 500ms;
   animation-iteration-count: infinite;
 }
 
-@keyframes blink {
+@keyframes blink-cursor {
   from {
     opacity: 0;
   }
