@@ -1,0 +1,19 @@
+.form-title {
+    font-size: min(3vh, 3vw);
+}
+
+.form-text {
+    font-size: min(2vh, 2vw);
+}
+
+.green-button {
+    background-color: #52b69a;
+}
+
+.contact-form {
+    width: 30vw;
+}
+
+.message {
+    height: 30vh;
+}

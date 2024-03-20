@@ -8,10 +8,11 @@
   gap: 1rem;
   overflow: hidden;
   position: relative;
+  z-index: 2;
 }
 
 .faded-box {
-  background-color: rgba(36, 36, 36, 0.3);
+  background-color: rgba(45, 45, 45, 0.3);
   overflow: hidden;
 }
 
@@ -44,6 +45,7 @@
   animation-fill-mode: forwards;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -73,7 +75,7 @@
   border-radius: min(5vh, 5vw);
   width: 100%;
   display: grid;
-  grid-template-rows: 2fr 1fr 5fr;
+  grid-template-rows: 1fr 5fr 2fr;
   gap: min(1vh, 1vw);
   position: relative;
   grid-row-start: 1;
@@ -84,7 +86,7 @@
 }
 
 .info-title {
-  font-size: min(3.5vh, 3.5vw);
+  font-size: min(3vh, 3vw);
   display: flex;
   justify-content: start;
   align-items: center;
@@ -101,6 +103,188 @@
 .info-name {
   position: relative;
   color: #52b69a;
+}
+
+.subtitle {
+  font-size: min(5vh, 5vw);
+  position: relative;
+  color: white;
+  animation-name: fade-in;
+  animation-delay: 2000ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  padding: min(2vh, 2vw);
+  width: 50vw;
+  font-size: min(3vh, 3vw);
+}
+
+.years {
+  font-size: min(7vh, 7vw);
+  color: #52b69a;
+  border-radius: 50%;
+  width: 20vh;
+  height: 20vh;
+  border: 10px solid #52b69a;
+  padding: min(2vh, 2vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.years-info {
+  margin-top: min(2vh,2vw);
+  font-size: min(3vh, 3vw);
+  color: white;
+  width: 10vw;
+}
+
+.experience {
+  background-color: rgba(23, 23, 23, 0.5);
+  padding: min(2vh, 2vw);
+  border-radius: min(2vh, 2vw);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-delay: 1000ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills-panel {
+  margin-left:min(2vh, 2vw);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: min(2vh, 2vw);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: min(2vh, 2vw);
+}
+
+.skills-name {
+  font-size: min(3vh, 3vw);
+  background-color: #52b69a;
+  padding: min(1vh,1vw);
+}
+
+.skills-content {
+  padding: min(1vh,1vw);
+}
+
+.skills-div {
+  background-color: rgba(23, 23, 23, 0.5);
+  border-radius: min(2vh, 2vw);
+  width: 15vw;
+  overflow: hidden;
+}
+
+.skills1 {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-delay: 1500ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.skills2 {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-delay: 2000ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.skills3 {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-delay: 2500ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.skills4 {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-delay: 3000ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.content {
+  background-color: rgba(23, 23, 23, 0.5);
+  border-radius: min(2vh, 2vw);
+  width: 50vw;
+  height: 40vh;
+  animation-name: fade-in;
+  animation-delay: 1000ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  font-size: min(5vh, 5vw);
+  position: relative;
+  color: white;
+  overflow: auto;
+}
+
+.work-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-title {
+  background-color: #52b69a;
+  padding: min(1vh, 1vw);
+  font-size: min(5vh, 5vw);
+}
+
+.work-text {
+  font-size: min(3vh, 3vw);
+  flex-grow: 1;
+  width: 100%;
+  text-align: justify;
+  padding: min(2vh, 2vw);
+}
+
+.work-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: min(2vh, 2vw);
+}
+
+.work-tag {
+  background-color: #52b69a;
+  padding: min(1vh, 1vw);
+  font-size: min(2vh, 2vw);
+  border-radius: min(5vh, 5vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .location-icon {
@@ -120,7 +304,7 @@
   display: flex;
   justify-content: start;
   align-items: start;
-  animation-name: location-info-fade-in;
+  animation-name: fade-in;
   animation-delay: 1000ms;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
@@ -128,12 +312,16 @@
 }
 
 .info-text {
-  font-size: min(2.5vh, 2.5vw);
-  animation-name: location-info-fade-in;
+  background-color: rgba(23, 23, 23, 0.5);
+  padding: min(2vh, 2vw);
+  border-radius: min(2vh, 2vw);
+  font-size: min(2vh, 2vw);
+  animation-name: fade-in;
   animation-delay: 1250ms;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
   opacity: 0;
+  height: 100%;
 }
 
 .icons {
@@ -154,7 +342,7 @@
   height: 100%;
   width: 100%;
   opacity: 0;
-  animation-name: icon-fade-in;
+  animation-name: fade-in;
   animation-delay: 1000ms;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
@@ -186,12 +374,59 @@
   font-weight: 700;
 }
 
+#blob {
+  z-index: 0;
+  background-color: white;
+  height: 20vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #b5e48c, #168aad);
+  animation: rotate 20s infinite;
+  opacity: 0.8;
+}
+
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  backdrop-filter: blur(10vmax);
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+
+  50% {
+    scale: 1 1.5;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
 @keyframes marker-fade-in {
   from {
     background-color: transparent;
   }
   to {
     background-color: #52b69a;
+  }
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -240,24 +475,6 @@
   to {
     opacity: 1;
     transform: translate(0%, 0%);
-  }
-}
-
-@keyframes icon-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes location-info-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

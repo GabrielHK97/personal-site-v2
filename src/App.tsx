@@ -1,10 +1,10 @@
 import "./App.css";
-import { Page } from "./page/page.component";
+import { SPADesktop } from "./pages/spa-desktop/spa-desktop.component";
 
 function App() {
   return (
     <div className="background">
-      <Page />
+      <SPADesktop/>
     </div>
   );
 }
